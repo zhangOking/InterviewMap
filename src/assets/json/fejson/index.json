@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "label": "JS",
+    "children": []
+  },
+  {
+    "id": 2,
+    "label": "Browser",
+    "children": []
+  },
+  {
+    "id": 3,
+    "label": "Safety",
+    "children": [
+      {
+        "id": 30001,
+        "label": "XSS",
+        "children": [
+          {
+            "id": 300010001,
+            "label": "如何攻击"
+          },
+          {
+            "id": 300010002,
+            "label": "如何防御"
+          },
+          {
+            "id": 300010003,
+            "label": "CSP"
+          }
+        ]
+      },
+      {
+        "id": 30002,
+        "label": "CSRF",
+        "children": [
+          {
+            "id": 300020001,
+            "label": "如何攻击"
+          },
+          {
+            "id": 300020002,
+            "label": "如何防御",
+            "children": [
+              {
+                "id": 300020002001,
+                "label": "SameSite"
+              },
+              {
+                "id": 300020002002,
+                "label": "验证Referer"
+              },
+              {
+                "id": 300020002003,
+                "label": "Token"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
