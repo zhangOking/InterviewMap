@@ -2,12 +2,260 @@
   {
     "id": 1,
     "label": "JS",
-    "children": []
+    "children": [
+      {
+        "id": 10001,
+        "label": "内置类型"
+      },
+      {
+        "id": 10002,
+        "label": "TypeOf"
+      },
+      {
+        "id": 10003,
+        "label": "类型转换",
+        "children": [
+          {
+            "id": 100030001,
+            "label": "转Boolean"
+          },
+          {
+            "id": 100030002,
+            "label": "对象转基本类型"
+          },
+          {
+            "id": 100030003,
+            "label": "四则运算符"
+          },
+          {
+            "id": 100030004,
+            "label": "==操作符"
+          },
+          {
+            "id": 100030005,
+            "label": "比较运算符"
+          }
+        ]
+      },
+      {
+        "id": 10004,
+        "label": "原型"
+      },
+      {
+        "id": 10005,
+        "label": "new"
+      },
+      {
+        "id": 10006,
+        "label": "instanceof"
+      },
+      {
+        "id": 10007,
+        "label": "this"
+      },
+      {
+        "id": 10008,
+        "label": "执行上下文"
+      },
+      {
+        "id": 10009,
+        "label": "闭包"
+      },
+      {
+        "id": 100010,
+        "label": "深浅拷贝"
+      },
+      {
+        "id": 100011,
+        "label": "模块化",
+        "children": [
+          {
+            "id": 100011001,
+            "label": "CommonJS"
+          },
+          {
+            "id": 100011002,
+            "label": "AMD"
+          }
+        ]
+      },
+      {
+        "id": 100012,
+        "label": "防抖"
+      },
+      {
+        "id": 100013,
+        "label": "节流"
+      },
+      {
+        "id": 100014,
+        "label": "继承"
+      },
+      {
+        "id": 100015,
+        "label": "call,apply,bind",
+        "children": [
+          {
+            "id": 100015001,
+            "label": "实现原理"
+          },
+          {
+            "id": 100015002,
+            "label": "手写call,apply,bind"
+          }
+        ]
+      },
+      {
+        "id": 100016,
+        "label": "Promise"
+      },
+      {
+        "id": 100017,
+        "label": "Generator"
+      },
+      {
+        "id": 100018,
+        "label": "数组方法",
+        "children": [
+          {
+            "id": 100018001,
+            "label": "Map"
+          },
+          {
+            "id": 100018002,
+            "label": "FlapMap"
+          },
+          {
+            "id": 100018003,
+            "label": "Reduce"
+          },
+          {
+            "id": 100018004,
+            "label": "Sort"
+          }
+        ]
+      },
+      {
+        "id": 100019,
+        "label": "async和await"
+      },
+      {
+        "id": 100020,
+        "label": "Proxy"
+      },
+      {
+        "id": 100021,
+        "label": "浮点数的计算"
+      },
+      {
+        "id": 100022,
+        "label": "正则"
+      }
+    ]
   },
   {
     "id": 2,
     "label": "Browser",
-    "children": []
+    "children": [
+      {
+        "id": 20001,
+        "label": "事件机制",
+        "children": [
+          {
+            "id": 200010001,
+            "label": "事件触发三阶段"
+          },
+          {
+            "id": 200010002,
+            "label": "注册事件"
+          },
+          {
+            "id": 200010003,
+            "label": "事件代理"
+          }
+        ]
+      },
+      {
+        "id": 20002,
+        "label": "跨域",
+        "children": [
+          {
+            "id": 200020001,
+            "label": "JSONP"
+          },
+          {
+            "id": 200020002,
+            "label": "CORS"
+          },
+          {
+            "id": 200020003,
+            "label": "document.domain"
+          },
+          {
+            "id": 200020004,
+            "label": "postMessage"
+          }
+        ]
+      },
+      {
+        "id": 20003,
+        "label": "EventLoop",
+        "children": [
+          {
+            "id": 200030001,
+            "label": "浏览器中的EventLoop"
+          },
+          {
+            "id": 200030002,
+            "label": "Node中的EventLoop"
+          }
+        ]
+      },
+      {
+        "id": 20004,
+        "label": "存储",
+        "children": [
+          {
+            "id": 200040001,
+            "label": "cookie"
+          },
+          {
+            "id": 200040002,
+            "label": "localStorage"
+          },
+          {
+            "id": 200040003,
+            "label": "sessionStorage"
+          },
+          {
+            "id": 200040004,
+            "label": "indexDB"
+          },
+          {
+            "id": 200040005,
+            "label": "ServiceWorker"
+          }
+        ]
+      },
+      {
+        "id": 20005,
+        "label": "渲染机制",
+        "children": [
+          {
+            "id": 200050001,
+            "label": "Load和DOMConentLoaded的区别"
+          },
+          {
+            "id": 200050002,
+            "label": "图层"
+          },
+          {
+            "id": 200050003,
+            "label": "Repaint和Reflow重绘和回流"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 3,
@@ -58,6 +306,492 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "label": "Framework",
+    "children": [
+      {
+        "id": 40001,
+        "label": "VirtualDom",
+        "children": [
+          {
+            "id": 400010001,
+            "label": "为什么使用VirtualDom"
+          },
+          {
+            "id": 400010002,
+            "label": "VirtualDom算法"
+          },
+          {
+            "id": 400010003,
+            "label": "VirtualDom算法实现"
+          }
+        ]
+      },
+      {
+        "id": 40002,
+        "label": "Vue",
+        "children": [
+          {
+            "id": 400020001,
+            "label": "NextTick原理"
+          },
+          {
+            "id": 400020002,
+            "label": "生命周期分析"
+          },
+          {
+            "id": 400020003,
+            "label": "双向绑定原理"
+          }
+        ]
+      },
+      {
+        "id": 40003,
+        "label": "React",
+        "children": [
+          {
+            "id": 400030001,
+            "label": "setState"
+          },
+          {
+            "id": 400020002,
+            "label": "源码分析"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "label": "NetWork",
+    "children": [
+      {
+        "id": 50001,
+        "label": "UDP",
+        "children": [
+          {
+            "id": 500010001,
+            "label": "不可靠性"
+          },
+          {
+            "id": 500010002,
+            "label": "面向报文"
+          },
+          {
+            "id": 500010003,
+            "label": "高效"
+          },
+          {
+            "id": 500010004,
+            "label": "传输方式"
+          }
+        ]
+      },
+      {
+        "id": 50002,
+        "label": "TCP",
+        "children": [
+          {
+            "id": 500020001,
+            "label": "头部"
+          },
+          {
+            "id": 500020002,
+            "label": "状态机",
+            "children": [
+              {
+                "id": 5000200020001,
+                "label": "三次握手"
+              },
+              {
+                "id": 5000200020002,
+                "label": "四次挥手"
+              }
+            ]
+          },
+          {
+            "id": 500020003,
+            "label": "ARQ协议",
+            "children": [
+              {
+                "id": 5000200030001,
+                "label": "停止等待ARQ"
+              },
+              {
+                "id": 5000200030002,
+                "label": "连续ARQ"
+              },
+              {
+                "id": 5000200030003,
+                "label": "累计确认"
+              }
+            ]
+          },
+          {
+            "id": 500020004,
+            "label": "滑动窗口",
+            "children": [
+              {
+                "id": 5000200040001,
+                "label": "Zero窗口"
+              }
+            ]
+          },
+          {
+            "id": 500020005,
+            "label": "拥堵处理",
+            "children": [
+              {
+                "id": 5000200050001,
+                "label": "避免拥堵算法"
+              },
+              {
+                "id": 5000200050002,
+                "label": "快速重传"
+              },
+              {
+                "id": 5000200050003,
+                "label": "TCP_New_Ren改进后的快恢复"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 50003,
+        "label": "HTTP",
+        "children": [
+          {
+            "id": 500030001,
+            "label": "Post和Get"
+          },
+          {
+            "id": 500030002,
+            "label": "常见状态码"
+          },
+          {
+            "id": 500030003,
+            "label": "HTTP首部"
+          }
+        ]
+      },
+      {
+        "id": 50004,
+        "label": "HTTPS"
+      },
+      {
+        "id": 50005,
+        "label": "HTTP2.0",
+        "children": [
+          {
+            "id": 500050001,
+            "label": "二进制传输"
+          },
+          {
+            "id": 500050002,
+            "label": "多路复用"
+          },
+          {
+            "id": 500050003,
+            "label": "Header压缩"
+          },
+          {
+            "id": 500050004,
+            "label": "服务端Push"
+          },
+          {
+            "id": 500050005,
+            "label": "QUIC"
+          }
+        ]
+      },
+      {
+        "id": 50006,
+        "label": "DNS"
+      },
+      {
+        "id": 50007,
+        "label": "从输入url到页面加载完成的过程"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "label": "Performance",
+    "children": [
+      {
+        "id": 60001,
+        "label": "网络相关",
+        "children": [
+          {
+            "id": 600010001,
+            "label": "DNS预解析"
+          },
+          {
+            "id": 600010002,
+            "label": "缓存",
+            "children": [
+              {
+                "id": 6000100020001,
+                "label": "强缓存"
+              },
+              {
+                "id": 6000100020002,
+                "label": "协商缓存",
+                "children": [
+                  {
+                    "id": 60001000200020001,
+                    "label": "Last-Modified和if-Modified-Since"
+                  },
+                  {
+                    "id": 60001000200020002,
+                    "label": "Etag和if-None-Match"
+                  }
+                ]
+              },
+              {
+                "id": 6000100020003,
+                "label": "选择合适的缓存策略"
+              }
+            ]
+          },
+          {
+            "id": 600010003,
+            "label": "使用HTTP/2.0"
+          },
+          {
+            "id": 600010004,
+            "label": "预加载"
+          },
+          {
+            "id": 600010005,
+            "label": "预渲染"
+          }
+        ]
+      },
+      {
+        "id": 60002,
+        "label": "渲染过程",
+        "children": [
+          {
+            "id": 600020001,
+            "label": "懒执行"
+          },
+          {
+            "id": 600020002,
+            "label": "懒加载"
+          }
+        ]
+      },
+      {
+        "id": 60003,
+        "label": "文件优化",
+        "children": [
+          {
+            "id": 600030001,
+            "label": "图片优化",
+            "children": [
+              {
+                "id": 6000300010001,
+                "label": "计算图片大小"
+              },
+              {
+                "id": 6000300010002,
+                "label": "图片加载优化"
+              }
+            ]
+          },
+          {
+            "id": 600030002,
+            "label": "其他文件优化"
+          },
+          {
+            "id": 600030003,
+            "label": "CDN"
+          }
+        ]
+      },
+      {
+        "id": 60004,
+        "label": "其他",
+        "children": [
+          {
+            "id": 600040001,
+            "label": "使用webpack优化项目"
+          },
+          {
+            "id": 600040002,
+            "label": "监控"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "label": "DataStruct",
+    "children": [
+      {
+        "id": 70001,
+        "label": "栈"
+      },
+      {
+        "id": 70002,
+        "label": "队列"
+      },
+      {
+        "id": 70003,
+        "label": "链表"
+      },
+      {
+        "id": 70004,
+        "label": "树"
+      },
+      {
+        "id": 70005,
+        "label": "Trie"
+      },
+      {
+        "id": 70006,
+        "label": "并查集"
+      },
+      {
+        "id": 70007,
+        "label": "堆"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "label": "Algorithm",
+    "children": [
+      {
+        "id": 80001,
+        "label": "时间复杂度"
+      },
+      {
+        "id": 80002,
+        "label": "位运算",
+        "children": [
+          {
+            "id": 800020001,
+            "label": "左移<<"
+          },
+          {
+            "id": 800020002,
+            "label": "算数右移>>"
+          },
+          {
+            "id": 800020003,
+            "label": "按位操作"
+          }
+        ]
+      },
+      {
+        "id": 80003,
+        "label": "排序",
+        "children": [
+          {
+            "id": 800030001,
+            "label": "冒泡排序"
+          },
+          {
+            "id": 800030002,
+            "label": "插入排序"
+          },
+          {
+            "id": 800040003,
+            "label": "选择排序"
+          },
+          {
+            "id": 800040004,
+            "label": "归并排序"
+          },
+          {
+            "id": 800040005,
+            "label": "快排"
+          },
+          {
+            "id": 800040006,
+            "label": "堆排序"
+          },
+          {
+            "id": 800040007,
+            "label": "系统自带排序实现Sort"
+          }
+        ]
+      },
+      {
+        "id": 80004,
+        "label": "链表",
+        "children": [
+          {
+            "id": 800040001,
+            "label": "反转单向链表"
+          }
+        ]
+      },
+      {
+        "id": 80005,
+        "label": "树",
+        "children": [
+          {
+            "id": 800050001,
+            "label": "二叉树的先序，中序，后序遍历"
+          },
+          {
+            "id": 800050002,
+            "label": "中序遍历的前驱后继节点"
+          },
+          {
+            "id": 800050003,
+            "label": "树的深度"
+          }
+        ]
+      },
+      {
+        "id": 80006,
+        "label": "动态规划",
+        "children": [
+          {
+            "id": 800060001,
+            "label": "斐波那契数列"
+          },
+          {
+            "id": 800060002,
+            "label": "0-1背包问题"
+          },
+          {
+            "id": 800060003,
+            "label": "最长递增子序列"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "label": "git",
+    "children": [
+      {
+        "id": 90001,
+        "label": "Rebase"
+      },
+      {
+        "id": 90002,
+        "label": "stash"
+      },
+      {
+        "id": 90003,
+        "label": "reflog"
+      },
+      {
+        "id": 90004,
+        "label": "reset"
       }
     ]
   }
