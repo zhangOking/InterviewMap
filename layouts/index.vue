@@ -9,7 +9,7 @@
           <Aside></Aside>
         </el-aside>
         <el-main>
-          <router-view/>
+          <Nuxt />
         </el-main>
       </el-container>
     </el-container>
@@ -17,10 +17,11 @@
 </template>
 
 <script>
+
 export default {
   components: {
-    'Header': () => import('@/components/Main/Header'),
-    'Aside': () => import('@/components/Main/Aside')
+    'Header': () => import('@/components/herder/header'),
+    'Aside': () => import('@/components/aside/aside')
   }
 }
 </script>

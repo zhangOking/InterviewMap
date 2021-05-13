@@ -8,7 +8,7 @@
         <i class="el-icon-location"></i>
         <span>首页</span>
       </el-menu-item>
-      <el-menu-item index="/FE">
+      <el-menu-item index="/fe">
         <i class="el-icon-menu"></i>
         <span slot="title">前端相关</span>
       </el-menu-item>

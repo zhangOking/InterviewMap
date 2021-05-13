@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  layout: 'content',
   data() {
     return {
       value: '',
@@ -48,7 +49,7 @@ export default {
   mounted() {
     const { path } = this.$route.query
     console.log(path)
-    this.$ajax.get(`/fe/${decodeURI(path)}.md`).then(res => {
+    this.$ajax.get(`/FE/${decodeURI(path)}.md`).then(res => {
       this.value = res
     })
   }

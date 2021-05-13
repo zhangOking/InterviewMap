@@ -6,7 +6,9 @@
 }
 
 body,
-html {
+html,
+#__nuxt,
+#__layout {
   height: 100%;
   scroll-behavior: smooth;
   overflow: scroll;
@@ -188,8 +190,8 @@ textarea {
 }
 
 /*这一句是用来解决在安卓上的点击出现篮框问题*/
-body{ 
-  -webkit-tap-highlight-color:rgba(0,0,0,0); 
+body{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 /*下面是解决ios上去除微信点击蓝色边框 */
 input:focus,

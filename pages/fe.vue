@@ -40,6 +40,7 @@
 <script>
 import fe from '@/assets/json/fejson'
 export default {
+  layout: 'index',
   data() {
     return {
       filterText: '',
