@@ -9,8 +9,12 @@
         <span>首页</span>
       </el-menu-item>
       <el-menu-item index="/fe">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-view"></i>
         <span slot="title">前端相关</span>
+      </el-menu-item>
+      <el-menu-item index="/edit">
+        <i class="el-icon-edit"></i>
+        <span slot="title">markdown编辑器</span>
       </el-menu-item>
     </el-menu>
   </div>

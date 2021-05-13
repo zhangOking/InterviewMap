@@ -85,7 +85,7 @@ export default {
       findParent(node)
 
       const url = this.$router.resolve({
-        path: '/Content',
+        path: '/content',
         query: {
           path: urlArr.reverse().join('/')
         }
