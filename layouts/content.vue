@@ -1,6 +1,5 @@
 <template>
   <div class="content">
-    <!-- <div>广告位</div> -->
     <nuxt />
   </div>
 </template>

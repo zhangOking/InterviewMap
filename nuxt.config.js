@@ -26,7 +26,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '~/plugins/vue-inject.ts',
-    '~/plugins/mavon-editor.ts'
+    { src: '~/plugins/mavon-editor.ts', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -63,6 +63,6 @@ export default {
 
   server: {
     host: '127.0.0.1',
-    port: 5555 // default: 3000
+    port: 6481 // default: 3000
   }
 }
