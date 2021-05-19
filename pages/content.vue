@@ -1,22 +1,26 @@
 <template>
   <div class="content">
-    <mavon-editor
-      style="height:100%"
-      :toolbars="toolbars"
-      :value="value"
-      :subfield="subfield"
-      :defaultOpen="defaultOpen"
-      :toolbarsFlag="toolbarsFlag"
-      :editable="editable"
-      :scrollStyle="scrollStyle" />
+    <div id="mavon-editor">
+      <mavon-editor
+        v-if="browser"
+        :toolbars="toolbars"
+        :value="value"
+        :subfield="subfield"
+        :defaultOpen="defaultOpen"
+        :toolbarsFlag="toolbarsFlag"
+        :editable="editable"
+        :scrollStyle="scrollStyle" />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   layout: 'content',
   data() {
     return {
+      browser: false,
       value: '',
       subfield: false,
       defaultOpen: 'preview',
@@ -43,15 +47,61 @@ export default {
         trash: true,
         save: true,
         navigation: true
-      }
+      },
+      percentage: 0
     }
   },
+  methods: {
+    ...mapMutations({
+      x_pagesScrollPercentage_update: 'tree-status/x_pagesScrollPercentage_update'
+    })
+  },
   mounted() {
-    const { path } = this.$route.query
-    console.log(path)
+    const { path, id } = this.$route.query
+
     this.$ajax.get(`/FE/${decodeURI(path)}.md`).then(res => {
       this.value = res
     })
+
+
+
+    if (process.browser) {
+      this.browser = true
+
+      let timer = null
+      const self = this
+
+      // scroll event
+      const scrollEvent = () => {
+        if (timer) {
+          clearTimeout(timer)
+          timer = null
+        }
+        timer = setTimeout(() => {
+          const max = document.querySelector('#mavon-editor').scrollHeight
+          const windowSize = window.innerHeight
+          const current = Math.abs(document.querySelector('#mavon-editor').getClientRects()[0].top)
+          let percentage = Math.floor((current / (max - windowSize)) * 100)
+
+          // page scroll percentage
+          if (percentage <= 100 && self.percentage <= percentage) {
+            self.percentage = percentage
+
+            // cache in localStorage
+            let ALLPAGESSCROLLPERCENTAGE = JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE')) || {}
+            ALLPAGESSCROLLPERCENTAGE[id] = percentage
+            window.localStorage.setItem('ALLPAGESSCROLLPERCENTAGE', JSON.stringify(ALLPAGESSCROLLPERCENTAGE))
+          }
+          timer = null
+        }, 500)
+
+      }
+
+      window.removeEventListener('scroll', scrollEvent, true)
+      window.addEventListener('scroll', scrollEvent, true)
+
+    }
+
   }
 }
 </script>

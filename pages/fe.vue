@@ -20,11 +20,10 @@
             <span v-if="node.isLeaf">
               <span class="fe-scroll_tree--isLeaf" @click="read(node)">{{ node.label }}</span>
               <span class="fe-scroll_tree--button">
-                <span v-if="completed.indexOf(node.data.id) > -1">
-                  <el-button type="text" size="mini" style="color: #67C23A">done</el-button>
-                  <el-button type="text" size="mini" style="color: #409EFF" @click="read(node)">review</el-button>
+                <span v-if="completed.indexOf(node.data.id) > -1 && +pagesScrollPercentage[node.data.id] === 100">
+                  <el-button type="text" size="mini" style="color: #67C23A">100%</el-button>
                 </span>
-                <el-button type="text" size="mini" style="color: #909399" v-else @click="read(node)">read</el-button>
+                <el-button type="text" size="mini" style="color: #909399" v-else @click="read(node)">{{`${pagesScrollPercentage[node.data.id] || 0}%`}}</el-button>
               </span>
             </span>
             <span v-else class="fe-scroll_tree--isntLeaf">
@@ -59,6 +58,14 @@ export default {
     }
   },
 
+  computed: {
+    pagesScrollPercentage() {
+      if (process.browser) {
+        return JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE') || '{}')
+      }
+    }
+  },
+
   methods: {
     filterNode(value, data) {
       if (!value) return true
@@ -87,6 +94,7 @@ export default {
       const url = this.$router.resolve({
         path: '/content',
         query: {
+          id: id,
           path: urlArr.reverse().join('/')
         }
       })
