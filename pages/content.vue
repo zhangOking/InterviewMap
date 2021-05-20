@@ -16,6 +16,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import { throttleMaker } from '@/until/tools/throttling'
 export default {
   layout: 'content',
   data() {
@@ -68,33 +69,27 @@ export default {
     if (process.browser) {
       this.browser = true
 
-      let timer = null
       const self = this
+      const throttle = throttleMaker(500, () => {
+        const max = document.querySelector('#mavon-editor').scrollHeight
+        const windowSize = window.innerHeight
+        const current = Math.abs(document.querySelector('#mavon-editor').getClientRects()[0].top)
+        let percentage = Math.floor((current / (max - windowSize)) * 100)
+
+        // page scroll percentage
+        if (percentage <= 100 && self.percentage <= percentage) {
+          self.percentage = percentage
+
+          // cache in localStorage
+          let ALLPAGESSCROLLPERCENTAGE = JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE')) || {}
+          ALLPAGESSCROLLPERCENTAGE[id] = percentage
+          window.localStorage.setItem('ALLPAGESSCROLLPERCENTAGE', JSON.stringify(ALLPAGESSCROLLPERCENTAGE))
+        }
+      })
 
       // scroll event
       const scrollEvent = () => {
-        if (timer) {
-          clearTimeout(timer)
-          timer = null
-        }
-        timer = setTimeout(() => {
-          const max = document.querySelector('#mavon-editor').scrollHeight
-          const windowSize = window.innerHeight
-          const current = Math.abs(document.querySelector('#mavon-editor').getClientRects()[0].top)
-          let percentage = Math.floor((current / (max - windowSize)) * 100)
-
-          // page scroll percentage
-          if (percentage <= 100 && self.percentage <= percentage) {
-            self.percentage = percentage
-
-            // cache in localStorage
-            let ALLPAGESSCROLLPERCENTAGE = JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE')) || {}
-            ALLPAGESSCROLLPERCENTAGE[id] = percentage
-            window.localStorage.setItem('ALLPAGESSCROLLPERCENTAGE', JSON.stringify(ALLPAGESSCROLLPERCENTAGE))
-          }
-          timer = null
-        }, 500)
-
+        throttle()
       }
 
       window.removeEventListener('scroll', scrollEvent, true)

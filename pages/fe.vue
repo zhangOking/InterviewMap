@@ -17,17 +17,19 @@
           :filter-node-method="filterNode"
           ref="tree">
           <span class="custom-tree-node" slot-scope="{ node }">
-            <span v-if="node.isLeaf">
-              <span class="fe-scroll_tree--isLeaf" @click="read(node)">{{ node.label }}</span>
-              <span class="fe-scroll_tree--button">
-                <span v-if="completed.indexOf(node.data.id) > -1 && +pagesScrollPercentage[node.data.id] === 100">
-                  <el-button type="text" size="mini" style="color: #67C23A">100%</el-button>
+            <span v-if="showTree">
+              <span v-if="node.isLeaf">
+                <span class="fe-scroll_tree--isLeaf" @click="read(node)">{{ node.label }}</span>
+                <span class="fe-scroll_tree--button">
+                  <span v-if="completed.indexOf(node.data.id) > -1 && +pagesScrollPercentage[node.data.id] === 100">
+                    <el-button type="text" size="mini" style="color: #67C23A">100%</el-button>
+                  </span>
+                  <el-button type="text" size="mini" style="color: #909399" v-else @click="read(node)">{{`${pagesScrollPercentage[node.data.id] || 0}%`}}</el-button>
                 </span>
-                <el-button type="text" size="mini" style="color: #909399" v-else @click="read(node)">{{`${pagesScrollPercentage[node.data.id] || 0}%`}}</el-button>
               </span>
-            </span>
-            <span v-else class="fe-scroll_tree--isntLeaf">
-              <span>{{ node.label }}</span>
+              <span v-else class="fe-scroll_tree--isntLeaf">
+                <span>{{ node.label }}</span>
+              </span>
             </span>
           </span>
         </el-tree>
@@ -38,6 +40,7 @@
 
 <script>
 import fe from '@/assets/json/fejson'
+import { throttleMaker } from '@/until/tools/throttling'
 export default {
   layout: 'index',
   data() {
@@ -45,24 +48,18 @@ export default {
       filterText: '',
       completed: [],
       data: fe,
+      showTree: true,
       defaultProps: {
         children: 'children',
         label: 'label'
-      }
+      },
+      pagesScrollPercentage: {}
     }
   },
 
   watch: {
     filterText(val) {
       this.$refs.tree.filter(val)
-    }
-  },
-
-  computed: {
-    pagesScrollPercentage() {
-      if (process.browser) {
-        return JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE') || '{}')
-      }
     }
   },
 
@@ -110,16 +107,21 @@ export default {
   },
 
   mounted() {
-    let readArr
     try {
-      readArr = JSON.parse(window.localStorage.getItem('READCOMPLETED'))
+      this.completed = JSON.parse(window.localStorage.getItem('READCOMPLETED')) || []
+      this.pagesScrollPercentage = JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE')) || {}
     } catch (error) {
-      readArr = null
+      console.log(error)
     }
-    if (readArr) {
-      this.completed = readArr
-    }
+
     this.setCheckedKeys()
+
+    const throttle = throttleMaker(500, () => {
+      this.pagesScrollPercentage = JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE') || '{}')
+    })
+    window.addEventListener('storage', () => {
+      throttle()
+    })
   }
 }
 </script>
