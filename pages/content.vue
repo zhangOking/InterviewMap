@@ -53,24 +53,26 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({
-      x_pagesScrollPercentage_update: 'tree-status/x_pagesScrollPercentage_update'
-    })
+    saveEndTime(id) {
+      let sessionObj = {}
+      JSON.parse(window.localStorage.getItem('ALLPAGESENDTTIME')) && (sessionObj = JSON.parse(window.localStorage.getItem('ALLPAGESENDTTIME')))
+
+      sessionObj[id] = new Date().getTime()
+      window.localStorage.setItem('ALLPAGESENDTTIME', JSON.stringify(sessionObj))
+    },
   },
-  mounted() {
+  async mounted() {
     const { path, id } = this.$route.query
 
-    this.$ajax.get(`/FE/${decodeURI(path)}.md`).then(res => {
-      this.value = res
-    })
+    const text = await this.$ajax.get(`/FE/${decodeURI(path)}.md`)
 
-
+    this.value = text
 
     if (process.browser) {
       this.browser = true
 
       const self = this
-      const throttle = throttleMaker(500, () => {
+      const throttle = throttleMaker(300, () => {
         const max = document.querySelector('#mavon-editor').scrollHeight
         const windowSize = window.innerHeight
         const current = Math.abs(document.querySelector('#mavon-editor').getClientRects()[0].top)
@@ -84,6 +86,10 @@ export default {
           let ALLPAGESSCROLLPERCENTAGE = JSON.parse(window.localStorage.getItem('ALLPAGESSCROLLPERCENTAGE')) || {}
           ALLPAGESSCROLLPERCENTAGE[id] = percentage
           window.localStorage.setItem('ALLPAGESSCROLLPERCENTAGE', JSON.stringify(ALLPAGESSCROLLPERCENTAGE))
+        }
+
+        if (percentage === 100) {
+          this.saveEndTime(id)
         }
       })
 

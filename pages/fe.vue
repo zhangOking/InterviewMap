@@ -76,16 +76,29 @@ export default {
       window.localStorage.setItem('READCOMPLETED', JSON.stringify(readArr))
       this.completed = readArr
     },
-    read(node) {
-      const urlArr = []
+    saveStartTime(node) {
       const id = node.data.id
+
+      if (!this.pagesScrollPercentage[id]) {
+        let sessionObj = {}
+        JSON.parse(window.localStorage.getItem('ALLPAGESSTARTTIME')) && (sessionObj = JSON.parse(window.localStorage.getItem('ALLPAGESSTARTTIME')))
+
+        sessionObj[id] = new Date().getTime()
+        window.localStorage.setItem('ALLPAGESSTARTTIME', JSON.stringify(sessionObj))
+      }
+    },
+    read(node) {
+      this.saveStartTime(node)
+
+      const id = node.data.id
+
+      const urlArr = []
       const findParent = (node) => {
         if (!node.parent) return
 
         urlArr.push(node.data.label)
         findParent(node.parent)
       }
-
       findParent(node)
 
       const url = this.$router.resolve({
