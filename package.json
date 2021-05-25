@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "pm2": "nuxt build && pm2 start ./node_modules/nuxt/bin/nuxt -- start"
+    "pm2": "nuxt build && pm2 start npm -- run start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
