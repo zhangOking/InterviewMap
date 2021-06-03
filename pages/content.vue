@@ -2,6 +2,7 @@
   <div class="content">
     <div id="mavon-editor">
       <mavon-editor
+        style="height: 100%"
         v-if="browser"
         :toolbars="toolbars"
         :value="value"
@@ -112,5 +113,8 @@ export default {
   width: 100%;
   height: 100%;
   overflow-y: auto;
+}
+/deep/#mavon-editor {
+  height: 100%;
 }
 </style>
