@@ -2,6 +2,11 @@
   <div class="welcome">
     <div class="welcome-inner">
       此处后续将会增加个人统计内容, <el-button type="text" @click="goFe">前端内容请移步</el-button>
+
+      <div>
+        目前网站还在建设中，百废待兴，有问题请点击<a href="https://github.com/zhangOking/InterviewMap">https://github.com/zhangOking/InterviewMap</a>
+      </div>
+
     </div>
     <div class="record">
       <a href="https://beian.miit.gov.cn/#/Integrated/index" class="">京ICP 2021016312</a>
