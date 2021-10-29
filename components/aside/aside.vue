@@ -12,6 +12,10 @@
         <i class="el-icon-view"></i>
         <span slot="title">前端相关</span>
       </el-menu-item>
+      <el-menu-item index="/fe-problems">
+        <i class="el-icon-view"></i>
+        <span slot="title">前端问题汇总</span>
+      </el-menu-item>
       <el-menu-item index="/edit">
         <i class="el-icon-edit"></i>
         <span slot="title">markdown编辑器</span>

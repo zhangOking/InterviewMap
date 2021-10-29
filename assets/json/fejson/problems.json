@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "label": "JS",
+    "children": [
+      {
+        "id" : 1000,
+        "label": "闭包",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "label": "CSS",
+    "children": [
+      {
+        "id": 1000,
+        "label": "JS",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "label": "HTML",
+    "children": [
+      {
+        "id": 1000,
+        "label": "JS",
+        "children": []
+      }
+    ]
+  }
+]
