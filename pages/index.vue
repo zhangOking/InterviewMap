@@ -9,7 +9,7 @@
 
     </div>
     <div class="record">
-      <a href="https://beian.miit.gov.cn/#/Integrated/index" class="">京ICP 2021016312</a>
+      <a href="https://beian.miit.gov.cn/#/Integrated/index" class="">京ICP备 2021016312号</a>
     </div>
   </div>
 </template>
